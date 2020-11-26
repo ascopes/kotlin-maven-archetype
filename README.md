@@ -6,10 +6,17 @@ Includes JUnit 5 support via `kotlin.test` for writing Unit Tests.
 
 ## Usage
 
-### Installing the archetype
+If you use UNIX and feel lazy, I wrote a one-liner to do everything for you. Just
+copy-paste this into your terminal:
+
+```bash
+curl https://raw.githubusercontent.com/ascopes/kotlin-maven-archetype/master/get.sh | bash
+```
+
+### Installing the archetype manually
 
 Because I haven't published this to Maven Central, you need to build this archetype
-project locally first. This is simple enough to do manually:
+project locally first. 
 
 #### UNIX
 
@@ -31,7 +38,7 @@ cd ..
 del kotlin-maven-archetype
 ```
 
-### Building a new project from the archetype
+### Building a new project from the archetype manually
 
 ```bash
 mvn archetype:generate -DarchetypeGroupId=io.ascopes -DarchetypeArtifactId=kotlin-maven-archetype
