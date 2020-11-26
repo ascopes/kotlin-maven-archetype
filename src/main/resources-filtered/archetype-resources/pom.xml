@@ -1,3 +1,4 @@
+#set($dollar='$')
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,50 +11,54 @@
 
     <properties>
         <!-- Project dependencies. -->
-        <kotlin.version>1.4.20</kotlin.version>
+        <kotlin.version>${kotlin.version}</kotlin.version>
 
         <!-- Plugins -->
-        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>${maven-compiler-plugin.version}</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>${maven-surefire-plugin.version}</maven-surefire-plugin.version>
+
+        <!-- Compiler settings -->
+        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+        <project.build.sourceEncoding>${project.build.sourceEncoding}</project.build.sourceEncoding>
 
         <!-- JVM settings. -->
-        <java.version>1.8</java.version>
+        <jvmTargetVersion>1.8</jvmTargetVersion>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
-            <version>${kotlin.version}</version>
+            <version>${dollar}{kotlin.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-reflect</artifactId>
-            <version>${kotlin.version}</version>
+            <version>${dollar}{kotlin.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit5</artifactId>
-            <version>${kotlin.version}</version>
+            <version>${dollar}{kotlin.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+        <sourceDirectory>${dollar}{project.basedir}/src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>${dollar}{project.basedir}/src/test/kotlin</testSourceDirectory>
 
         <plugins>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
-                <version>${kotlin.version}</version>
+                <version>${dollar}{kotlin.version}</version>
                 <extensions>true</extensions>
 
                 <configuration>
-                    <jvmTarget>${java.version}</jvmTarget>
+                    <jvmTarget>${dollar}{jvmTargetVersion}</jvmTarget>
                     <nowarn>true</nowarn>
                     <args>
                         <!-- Strict processing of annotations like @NotNull/@Nullable, etc -->
@@ -81,17 +86,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>${dollar}{maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>${dollar}{jvmTargetVersion}</source>
+                    <target>${dollar}{jvmTargetVersion}</target>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
+                <version>${dollar}{maven-surefire-plugin.version}</version>
             </plugin>
         </plugins>
     </build>

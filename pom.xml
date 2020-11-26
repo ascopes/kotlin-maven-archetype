@@ -9,12 +9,32 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
+    <properties>
+        <kotlin.version>1.4.20</kotlin.version>
+        <maven-archetype-packaging.version>3.1.1</maven-archetype-packaging.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+
+        <jvmTargetVersion>1.8</jvmTargetVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources-filtered</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**</include>
+                </includes>
+            </resource>
+        </resources>
+
         <extensions>
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>3.1.1</version>
+                <version>${maven-archetype-packaging.version}</version>
             </extension>
         </extensions>
     </build>
