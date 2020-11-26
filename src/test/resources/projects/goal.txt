@@ -1,1 +1,1 @@
--U clean package -DfailIfNoTests=true
+-B -U clean package -DfailIfNoTests=true
