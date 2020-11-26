@@ -12,7 +12,7 @@ TEMP_DIR="$(mktemp -d)"
 CWD="$(readlink -e "$(pwd)")"
 cd "${TEMP_DIR}" || exit
 git clone https://github.com/ascopes/kotlin-maven-archetype.git
-cd kotlin-mvn-archetype || exit
+cd kotlin-maven-archetype || exit
 mvn install
 cd "${CWD}" || exit
 rm "${TEMP_DIR}" -R
