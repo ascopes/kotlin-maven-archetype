@@ -1,0 +1,9 @@
+target/
+build/
+out/
+.idea/
+.vs/
+vs/
+.vscode/
+vscode/
+*.iml
