@@ -1,0 +1,24 @@
+# Maven stuff.
+target/
+
+# Tempfiles.
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.metadata
+
+
+# IntelliJ generated stuff.
+.idea/
+*.iml
+out/
+
+# Eclipse stuff.
+bin/
+.settings/
+.loadpath
+.classpath
+.factorypath
+.project
